@@ -15,21 +15,27 @@ const routes: RouteConfig[] = [
         component: () => import("../views/Home.vue")
       },
       {
-        name: "courses-list",
-        path: "/courses/list",
-        component: () => import("../views/courses/CourseList.vue")
-      },
-      {
-        name: "courses-edit",
-        path: "/courses/edit/:id",
-        component: () => import("../views/courses/CourseEdit.vue"),
+        name: "resource-crud",
+        path: ":resource/list",
+        component: () => import("../views/ResourceCrud.vue"),
         props: true
-      },
-      {
-        name: "courses-create",
-        path: "/courses/create",
-        component: () => import("../views/courses/CourseEdit.vue")
       }
+      // {
+      //   name: "courses-list",
+      //   path: "/courses/list",
+      //   component: () => import("../views/courses/CourseList.vue")
+      // },
+      // {
+      //   name: "courses-edit",
+      //   path: "/courses/edit/:id",
+      //   component: () => import("../views/courses/CourseEdit.vue"),
+      //   props: true
+      // },
+      // {
+      //   name: "courses-create",
+      //   path: "/courses/create",
+      //   component: () => import("../views/courses/CourseEdit.vue")
+      // }
     ]
   }
 ];

@@ -2,7 +2,7 @@
   <div>
     <h3>视频集合列表</h3>
     <div>
-      <el-button type="success" size="small" @click="$router.push('/courses/create')">创建集合</el-button>
+      <el-button type="success" @click="$router.push('/courses/create')">创建集合</el-button>
     </div>
     <el-table :data="data.data" border stripe>
       <el-table-column

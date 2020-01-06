@@ -1,7 +1,12 @@
 <template>
   <el-container>
     <el-aside width="200px">
-      <el-menu mode="vertical" style="height: 100vh" :default-active="$route.path" router>
+      <el-menu
+        mode="vertical"
+        style="height: 100vh"
+        :default-active="$route.path"
+        router
+      >
         <el-submenu
           v-for="(item, index) in menu.items"
           :index="String(index + 1)"
@@ -12,7 +17,8 @@
             v-for="(subitem, subIndex) in item.items"
             :key="`menu-item-${index}-${subIndex}`"
             :index="subitem.path"
-          >{{subitem.title}}</el-menu-item>
+            >{{ subitem.title }}</el-menu-item
+          >
         </el-submenu>
       </el-menu>
     </el-aside>
@@ -46,7 +52,7 @@ export default class Main extends Vue {
           },
           {
             title: "视频管理",
-            path: "/courses/list"
+            path: "/episodes/list"
           }
         ]
       },
@@ -64,5 +70,4 @@ export default class Main extends Vue {
 }
 </script>
 
-<style>
-</style>
+<style></style>
