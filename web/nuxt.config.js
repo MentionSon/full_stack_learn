@@ -53,6 +53,7 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    '@nuxtjs/auth',
     // '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv'
@@ -62,6 +63,19 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {},
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: { url: '/auth/login' },
+          logout: { url: '/auth/logout' },
+          user: { url: '/auth/user', propertyName: false }
+        }
+        // tokenRequired: true,
+        // tokenType: 'bearer'
+      }
+    }
+  },
   /*
    ** vuetify module configuration
    ** https://github.com/nuxt-community/vuetify-module

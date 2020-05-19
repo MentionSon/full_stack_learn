@@ -18,5 +18,5 @@ export class Course {
   cover: string;
 
   @arrayProp({ ref: 'Episode', localField: '_id', foreignField: 'course' })
-  episodes: Ref<Episode>[];
+  episodes: Array<Ref<Course>>;
 }

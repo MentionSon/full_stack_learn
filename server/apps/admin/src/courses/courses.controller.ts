@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2019-10-28 23:58:19
+ * @LastEditTime: 2020-04-11 20:26:43
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \full_stack_learn\server\apps\admin\src\courses\courses.controller.ts
+ */
 import { Controller, Get } from '@nestjs/common';
 import { Crud } from 'nestjs-mongoose-crud';
 import { Course } from '@libs/db/models/course.model';
