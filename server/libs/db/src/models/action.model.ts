@@ -14,6 +14,7 @@ import { Episode } from './episode.model';
 @modelOptions({
   schemaOptions: {
     timestamps: true,
+    toJSON: { virtuals: true },
   },
 })
 export class Action {

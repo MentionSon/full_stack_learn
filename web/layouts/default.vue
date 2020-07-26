@@ -60,23 +60,28 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar app clipped-left color="red" dense>
+    <v-app-bar app clipped-left dense flat>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-icon class="mx-4">fab fa-youtube</v-icon>
+      <v-icon class="mx-4 blue--text">landscape</v-icon>
       <v-toolbar-title class="mr-12 align-center">
-        <span class="title">Full Stack</span>
+        <span class="subtitle-1 font-weight-bold">Full Stack</span>
       </v-toolbar-title>
       <v-spacer />
-      <v-row align="center" style="max-width: 650px">
+      <v-row align="center" style="max-width: 40vw">
         <v-text-field
-          :append-icon-cb="() => {}"
           placeholder="搜索..."
           single-line
+          filled
+          rounded
+          dense
           append-icon="search"
           color="white"
           hide-details
         />
       </v-row>
+      <v-spacer />
+      <v-switch v-model="$vuetify.theme.dark" hide-details />
     </v-app-bar>
 
     <v-content>
@@ -132,7 +137,7 @@ export default {
     ]
   }),
   created() {
-    this.$vuetify.theme.dark = true
+    this.$vuetify.theme.dark = false
   },
   methods: {
     async login() {

@@ -1,6 +1,5 @@
 import { prop, modelOptions, arrayProp, Ref } from '@typegoose/typegoose';
 import { ApiProperty } from '@nestjs/swagger';
-import { Episode } from './episode.model';
 
 @modelOptions({
   schemaOptions: {

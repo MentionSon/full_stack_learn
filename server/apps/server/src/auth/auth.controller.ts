@@ -7,7 +7,7 @@ import { AuthGuard } from '@nestjs/passport';
 import { RegisterDto } from './dto/register.dto';
 import { LoginDto } from './dto/login.dto';
 import { JwtService } from '@nestjs/jwt';
-import { currentUser } from './current-user.decorator';
+import { CurrentUser } from './current-user.decorator';
 
 @Controller('auth')
 @ApiTags('用户')
@@ -31,7 +31,7 @@ export class AuthController {
   @Post('login')
   @ApiOperation({ summary: '登录' })
   @UseGuards(AuthGuard('local'))
-  async login(@Body() dto: LoginDto, @currentUser() user: UserDocument) {
+  async login(@Body() dto: LoginDto, @CurrentUser() user: UserDocument) {
     // return req.user;
     return {
       token: this.jwtService.sign(String(user._id)),
@@ -42,7 +42,7 @@ export class AuthController {
   @ApiOperation({ summary: '个人信息' })
   @UseGuards(AuthGuard('jwt'))
   @ApiBearerAuth()
-  async user(@currentUser() user: UserDocument) {
+  async user(@CurrentUser() user: UserDocument) {
     return user;
   }
 }

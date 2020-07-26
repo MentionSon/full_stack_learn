@@ -3,11 +3,13 @@
     <h3>热门视频</h3>
     <v-row>
       <v-col v-for="item in courses" :key="item._id" md="4">
-        <v-card :to="`courses/${item._id}`" class="mx-auto" max-width="344">
-          <v-img :src="item.cover" height="200px"></v-img>
+        <v-card class="mx-auto" max-width="344">
+          <router-link :to="`courses/${item._id}`">
+            <v-img :src="item.cover" height="200px"></v-img>
+          </router-link>
 
           <v-card-title>
-            {{ item.title }}
+            {{ item.name }}
           </v-card-title>
 
           <v-card-subtitle>
@@ -15,7 +17,7 @@
           </v-card-subtitle>
 
           <v-card-actions>
-            <v-btn text>Share</v-btn>
+            <like-btn :object="item._id" type="Course" />
 
             <v-btn color="purple" text>
               Explore
@@ -30,7 +32,12 @@
 </template>
 
 <script>
+import LikeBtn from '../../components/LikeBtn.vue'
+
 export default {
+  components: {
+    LikeBtn
+  },
   async asyncData({ $axios }) {
     const data = await $axios.$get('courses')
     return {
